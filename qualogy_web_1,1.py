@@ -25,7 +25,7 @@ for link in doc.find_all('a', href=True):
 
 
 
-#print(links_list)
+print(links_list)
 
 for link in links_list:
     try:
@@ -40,4 +40,4 @@ for link in links_list:
     except:
         pass
 
-print(name_list)
+#print(name_list)
