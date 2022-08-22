@@ -46,7 +46,7 @@ for link in links_list:
 print(name_list)
 
 json_data= json.dumps(name_list)
-with open("sample.json","a") as file:
+with open("sample_1.json","a") as file:
     file.write(json_data)
 
 print('test')
