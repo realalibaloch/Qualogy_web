@@ -24,22 +24,21 @@ for link in doc.find_all('a', href=True):
 
 
 for link in links_list:
+    if link==6:
+        break
     try:
         req=Request(link)
         result=urlopen(req).read()
         doc_link=BeautifulSoup(result,'html.parser')
         title=doc_link.find(attrs={'class':'vacancy-title'})
         Exp=doc_link.find(attrs={'class':'vacancy-experience'})
+        #job_text=doc_link.find('p')
         code=Exp.text
-        Exprince=code.replace('\n','')
-        Email="career@qualogy.com"
         name=title.text
-        dict_1={'Title Name':name}
-        dict_2={'Exprince':Exprince}
-        dict_3={'Email':Email}
+        Exprince=code.replace('\n','')
+        email="career@qualogy.com"
+        dict_1={'Title':name,'Exprince':Exprince,'Email':email}
         name_list.append(dict_1)
-        name_list.append(dict_2)
-        name_list.append(dict_3)
     except:
         pass
 
@@ -48,5 +47,9 @@ print(name_list)
 json_data= json.dumps(name_list)
 with open("sample.json","a") as file:
     file.write(json_data)
-
+'''
 print('test')
+        list_1=['Title Name',name]
+        list_2=['Exprince',Exprince]
+        list_3=['Email',Email]
+'''
