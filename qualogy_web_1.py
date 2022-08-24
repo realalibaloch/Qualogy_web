@@ -22,10 +22,10 @@ for link in doc.find_all('a', href=True):
         z=0
         #print("Found the URL:", link['href'])
 
-
+count=0
 for link in links_list:
-    if link==6:
-        break
+    
+
     try:
         req=Request(link)
         result=urlopen(req).read()
@@ -38,15 +38,20 @@ for link in links_list:
         Exprince=code.replace('\n','')
         email="career@qualogy.com"
         dict_1={'Title':name,'Exprince':Exprince,'Email':email}
+        count+=1
+        if count==10:
+            break
         name_list.append(dict_1)
     except:
         pass
-
+    
 print(name_list)
 
 json_data= json.dumps(name_list)
-with open("sample.json","a") as file:
+with open("sample_1.json","a") as file:
     file.write(json_data)
+
+
 '''
 print('test')
         list_1=['Title Name',name]
